@@ -35,17 +35,27 @@ const internships = [
   }
 ]
 
-const projects = [
+interface Project {
+  name: string
+  role: string
+  link?: string
+  github?: string
+  tech: string[]
+}
+
+const projects: Project[] = [
   {
     name: 'object1veAI',
     role: '全栈开发',
     link: 'http://106.52.91.170:88/',
+    github: 'https://github.com/object-1ve/object1veAI',
     tech: ['Vite', 'Vue 3', 'Element Plus', 'Pinia', 'Koa2', 'MySQL', 'OpenAI SDK']
   },
   {
     name: '智能云图库',
     role: '全栈开发',
     link: 'http://106.52.91.170:90/',
+    github: 'https://github.com/object-1ve/cloud-gallery',
     tech: ['Vue 3', 'Ant Design Vue', 'Pinia', 'MyBatis Plus', 'Swagger','Java']
   }
 ]
