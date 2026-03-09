@@ -5,13 +5,11 @@ const contactInfo = {
   name: '应知钊',
   birth: '2004-01',
   gender: '男',
-  location: '浙江 · 金华/杭州',
-  status: 'Looking for Opportunities',
   role: '前端开发工程师',
   phone: '18066261219',
   email: '2672510873@qq.com',
   github: 'https://github.com/object-1ve',
-  intro: '乐观积极，热爱技术，具有良好的逻辑能力与团队协作精神，致力于打造极致的用户体验。'
+  intro: '乐观积极，热爱技术，有效沟通，逻辑能力强，相信方法总比困难多。'
 }
 
 const education = [
@@ -39,30 +37,16 @@ const internships = [
 
 const projects = [
   {
-    name: 'object1veAI 全栈项目',
+    name: 'object1veAI',
     role: '全栈开发',
     link: 'http://106.52.91.170:88/',
-    github: 'https://github.com/object-1ve/object1veAI',
     tech: ['Vite', 'Vue 3', 'Element Plus', 'Pinia', 'Koa2', 'MySQL', 'OpenAI SDK']
   },
   {
-    name: '智能云图库项目',
+    name: '智能云图库',
     role: '全栈开发',
-    github: 'https://github.com/object-1ve/cloud-picture',
-    tech: ['Vue 3', 'Ant Design Vue', 'Pinia', 'MyBatis Plus', 'Swagger']
-  },
-  {
-    name: '个人简历生成器',
-    role: '前端开发',
-    link: 'https://resume.object1ve.com',
-    github: 'https://github.com/object-1ve/resume-portfolio',
-    tech: ['Vue 3', 'Tailwind CSS', 'Vite', 'TypeScript']
-  },
-  {
-    name: 'AI 助手 MCP 插件',
-    role: '后端开发',
-    github: 'https://github.com/object-1ve/mcp-plugins',
-    tech: ['Node.js', 'TypeScript', 'MCP SDK', 'Zod']
+    link: 'http://106.52.91.170:90/',
+    tech: ['Vue 3', 'Ant Design Vue', 'Pinia', 'MyBatis Plus', 'Swagger','Java']
   }
 ]
 
@@ -94,10 +78,6 @@ const skills = [
           
           <div class="flex-1 text-center md:text-left space-y-6">
             <div class="space-y-3">
-              <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
-                <span class="px-3 py-1 bg-orange-50 text-orange-600 text-[10px] font-bold rounded-full tracking-wider uppercase border border-orange-100/50">{{ contactInfo.status }}</span>
-                <span class="px-3 py-1 bg-gray-50 text-gray-600 text-[10px] font-bold rounded-full tracking-wider uppercase border border-gray-100/50">📍 {{ contactInfo.location }}</span>
-              </div>
               <h1 class="text-5xl md:text-6xl font-black tracking-tight text-gray-900">{{ contactInfo.name }}</h1>
               <p class="text-xl font-semibold text-gray-600 mt-2">{{ contactInfo.role }}</p>
             </div>
@@ -164,18 +144,18 @@ const skills = [
               <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-orange-500 border-4 border-white shadow-sm group-hover/item:scale-125 transition-transform"></div>
               <div class="flex justify-between items-start flex-wrap gap-4 mb-6">
                 <div>
-                  <h3 class="text-2xl font-black text-gray-900 group-hover/item:text-orange-600 transition-colors">{{ job.company }}</h3>
+                  <h3 class="text-3xl font-black text-gray-900 group-hover/item:text-orange-600 transition-colors">{{ job.company }}</h3>
                   <div class="flex items-center gap-2 mt-2">
-                    <span class="text-orange-600 font-bold text-xs uppercase tracking-wider">{{ job.department }}</span>
+                    <span class="text-orange-600 font-bold text-sm uppercase tracking-wider">{{ job.department }}</span>
                     <span class="text-gray-400">•</span>
-                    <span class="text-gray-500 font-bold text-xs uppercase tracking-wider">{{ job.role }}</span>
+                    <span class="text-gray-700 font-bold text-sm uppercase tracking-wider">{{ job.role }}</span>
                   </div>
                 </div>
-                <span class="px-4 py-1.5 bg-gray-50 text-gray-600 text-[10px] rounded-full font-black uppercase tracking-widest border border-gray-100">{{ job.period }}</span>
+                <span class="px-4 py-1.5 bg-gray-50 text-gray-600 text-xs rounded-full font-black uppercase tracking-widest border border-gray-100">{{ job.period }}</span>
               </div>
               <ul class="space-y-4">
-                <li v-for="task in job.tasks" :key="task" class="flex gap-4 text-sm text-gray-700 leading-relaxed font-medium group/task">
-                  <span class="w-1.5 h-1.5 rounded-full bg-orange-200 mt-2 shrink-0 group-hover/task:bg-orange-500 transition-colors"></span>
+                <li v-for="task in job.tasks" :key="task" class="flex gap-4 text-base text-gray-700 leading-relaxed font-medium group/task">
+                  <span class="w-1.5 h-1.5 rounded-full bg-orange-200 mt-2.5 shrink-0 group-hover/task:bg-orange-500 transition-colors"></span>
                   {{ task }}
                 </li>
               </ul>
@@ -240,8 +220,8 @@ const skills = [
         <section class="md:col-span-12 space-y-8 py-4">
           <div class="flex items-center justify-between">
             <h2 class="text-4xl font-black text-gray-900 tracking-tight flex items-center gap-4">
-              精选项目
-              <span class="text-sm font-bold text-gray-500 uppercase tracking-[0.3em] ml-2">Selected Works</span>
+              项目
+              <span class="text-sm font-bold text-gray-500 uppercase tracking-[0.3em] ml-2">Works</span>
             </h2>
             <div class="h-px flex-1 bg-gray-100/80 mx-8 hidden md:block"></div>
           </div>
@@ -308,7 +288,7 @@ const skills = [
 
       <!-- Footer -->
       <footer class="text-center py-12">
-        <p class="text-gray-600 text-sm font-medium tracking-tight">© 2026 {{ contactInfo.name }} · 设计灵感源自 SamuelQZQ · Built with Vue 3 & Tailwind</p>
+        <p class="text-gray-600 text-sm font-medium tracking-tight">© 2026 by object1ve</p>
       </footer>
     </div>
   </div>

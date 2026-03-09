@@ -1,310 +1,155 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>应知钊 - 个人简历</title>
+    <title>个人简历</title>
     <style>
-        :root {
-            --primary: #f97316;
-            --text-main: #000000;
-            --text-secondary: #2d3748;
-            --text-light: #4a5568;
-            --bg-card: #ffffff;
-            --border-color: #e2e8f0;
-        }
-
-        @page {
-            size: A4;
-            margin: 0;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.5;
-            color: var(--text-main);
-            background: #fff;
-            margin: 0;
-            padding: 0;
-            -webkit-print-color-adjust: exact;
-        }
-
-        .resume-container {
-            width: 210mm;
-            min-height: 297mm;
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            width: 749px;  /* 添加px单位 */
+            height: 1014px;  /* 添加px单位 */
             margin: 0 auto;
-            padding: 20mm 15mm;
-            box-sizing: border-box;
+            padding: 20px;
+            border: #333 solid 1px;
+            box-sizing: border-box;  /* 新增: 确保padding和border包含在宽度内 */
+            margin-top: 20px;
+            font-size: 11px;
+            font-weight: bold;
         }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #c7360e;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1px;
+        }
+        .contact-info {
+            margin-bottom: 0px;
 
-        header {
+        }
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 25px;
         }
-
-        .header-info h1 {
-            margin: 0;
-            font-size: 32pt;
-            font-weight: 900;
-            letter-spacing: -1px;
-            color: #000;
+        .contact-info > div {
+            margin-bottom: 3px;  
         }
-
-        .header-info .role {
-            font-size: 14pt;
-            color: var(--primary);
-            font-weight: 700;
-            margin-top: 5px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 6px;
-            margin-top: 12px;
-            font-size: 9.5pt;
-            color: var(--text-secondary);
-            font-weight: 600;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
+        
         .avatar {
-            width: 100px;
-            height: 120px;
+            width: 120px;
+            height: 140px;
+            border-radius: 4px;
             object-fit: cover;
-            border-radius: 12px;
-            border: 2px solid var(--border-color);
         }
+        .contact-info-section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 500px;
 
-        section {
-            margin-bottom: 22px;
-        }
-
-        h2 {
-            font-size: 14pt;
-            font-weight: 900;
-            color: #000;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 4px;
-            margin-bottom: 12px;
+        } 
+        .contact-info-section-div1{
             display: flex;
             align-items: center;
-            gap: 10px;
-        }
+            min-width: 250px;
 
-        h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--border-color);
         }
-
-        .item-header {
+        .contact-info-section-div2{
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-
-        .item-title {
-            font-size: 11.5pt;
-            font-weight: 800;
-            color: #000;
-        }
-
-        .item-subtitle {
-            font-size: 10.5pt;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .item-date {
-            font-size: 9.5pt;
-            color: var(--text-light);
-            font-weight: 700;
-        }
-
-        ul {
-            margin: 6px 0;
-            padding-left: 18px;
-            list-style-type: none;
-        }
-
-        li {
-            font-size: 10pt;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-            position: relative;
-            font-weight: 500;
-        }
-
-        li::before {
-            content: "•";
-            color: var(--primary);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .skill-group {
-            font-size: 9.5pt;
-        }
-
-        .skill-category {
-            font-weight: 900;
-            color: #000;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 8.5pt;
-        }
-
-        .skill-items {
-            color: var(--text-secondary);
-            line-height: 1.5;
-            font-weight: 600;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .project-card {
-            padding: 10px;
-            background: #fafafa;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-        }
-
-        .project-name {
-            font-size: 10.5pt;
-            font-weight: 800;
-            margin-bottom: 3px;
-            color: #000;
-        }
-
-        .project-tech {
-            font-size: 8.5pt;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .project-desc {
-            font-size: 9pt;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            font-weight: 500;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-    <div class="resume-container">
-        <header>
-            <div class="header-info">
-                <h1>应知钊</h1>
-                <div class="role">前端开发工程师</div>
-                <div class="contact-grid">
-                    <div class="contact-item">📞 18066261219</div>
-                    <div class="contact-item">📧 2672510873@qq.com</div>
-                    <div class="contact-item">🔗 github.com/object-1ve</div>
-                    <div class="contact-item">📍 浙江 · 金华/杭州</div>
+    <div class="header-container">
+        <div>
+            <h1>应知钊</h1>
+            <div class="contact-info">
+                <div class="contact-info-section">
+                    <div class="contact-info-section-div1">
+                        <div>2004-01 | 男 | 前端开发</div>
+                    </div>
+                    <div class="contact-info-section-div2">
+                        <svg t="1744378339323" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2680" width="20" height="20"><path d="M217.856 94.677333c-36.608 14.762667-60.928 38.485333-96.597333 83.2-88.618667 111.232-9.386667 332.8 194.730666 535.210667l10.581334 10.368c192 184.576 434.986667 264.533333 527.701333 184.064l3.029333-2.816-1.450666 1.194667a249.301333 249.301333 0 0 0 64.042666-77.994667c33.152-64 24.149333-130.858667-41.173333-182.954667-94.037333-75.008-157.184-77.568-219.434667-20.48l-6.997333 6.570667-18.005333 17.834667c-7.808-1.621333-19.882667-7.338667-34.730667-16.896-29.610667-19.114667-66.517333-50.901333-108.586667-92.586667-41.941333-41.642667-74.069333-78.208-93.312-107.605333l-3.882666-6.101334a120.448 120.448 0 0 1-12.245334-24.832l-0.938666-3.413333 18.133333-17.92 6.613333-6.954667c57.472-61.738667 54.912-124.373333-20.650666-217.642666-51.328-63.36-109.653333-83.328-166.826667-60.245334z m99.925333 113.493334l11.221334 14.08c37.546667 48.682667 37.888 64.853333 16.384 89.258666l-8.32 8.874667-21.12 20.821333c-45.482667 45.056-25.258667 102.314667 41.856 181.205334l14.08 16.085333 15.232 16.682667 8.106666 8.533333 16.981334 17.621333 18.176 18.261334 9.258666 9.130666 18.090667 17.450667 17.408 16.298667c5.717333 5.205333 11.306667 10.24 16.810667 15.104l16.213333 13.909333c79.616 66.56 137.216 86.570667 182.698667 41.685333l21.034666-20.992 5.546667-5.248c24.277333-22.186667 39.296-25.301333 80.725333 3.968l12.586667 9.258667 14.250667 11.093333c31.232 24.917333 34.261333 47.573333 18.602666 77.781334a165.845333 165.845333 0 0 1-26.88 36.608l-7.253333 7.338666-5.546667 5.12-5.333333 4.650667c-14.421333 14.293333-69.888 15.658667-141.184-7.722667-90.709333-29.781333-189.994667-92.074667-280.746667-182.101333-177.109333-175.658667-241.408-355.413333-188.16-422.272 26.453333-33.194667 43.648-49.92 61.653334-57.173333 19.285333-7.808 38.570667-1.194667 67.626666 34.688z" fill="#000000" p-id="2681"></path></svg>
+                        <div>: 18066261219</div>
+                    </div>
                 </div>
-                <div style="margin-top: 12px; font-size: 10pt; color: var(--text-secondary); max-width: 520px; font-weight: 600;">
-                    乐观积极，热爱技术，具有良好的逻辑能力与团队协作精神，致力于打造极致的用户体验。
+                <div class="contact-info-section">
+                    <div class="contact-info-section-div1">
+                        <svg t="1773034093533" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5544" width="20" height="20"><path d="M809.286 82.487l-591.109 0c-39.747 0-72.363 32.614-72.363 72.363l0 729.712c0 39.747 32.614 72.363 72.363 72.363l496.329 0 167.138-172.238 0-629.838c0-39.747-32.614-72.363-72.363-72.363zM711.446 889.657l0-67.874c0-16.103 13.249-29.148 29.148-29.148l62.372 0-91.521 97.025zM834.561 739.842l-88.666 0c-44.844 0-81.532 36.689-81.532 81.532l0 85.61-442.516 0c-16.103 0-29.148-13.249-29.148-29.148l0-713.406c0-16.103 13.249-29.148 29.148-29.148l583.568 0c16.103 0 29.148 13.249 29.148 29.148l0 575.414zM266.484 312.818l382.386 0c13.654 0 24.868-11.211 24.868-25.07 0-13.654-11.414-24.868-25.07-24.868l-382.183 0c-13.654 0-24.868 11.211-24.868 24.868 0 13.859 11.211 25.07 24.868 25.07zM266.691 383.344c-13.654 0-24.868 11.414-24.868 25.07s11.211 24.868 24.868 24.868l326.128 0c13.654 0 24.868-11.211 25.07-24.868 0-13.859-11.414-25.07-25.07-25.07l-326.128 0zM714.507 503.807l-448.018 0c-13.654 0-24.868 11.211-24.868 24.868 0 13.859 11.211 25.07 24.868 25.07l448.018 0c13.654 0 24.868-11.211 25.07-25.07 0-13.654-11.414-24.868-25.07-24.868z" fill="#272636" p-id="5545"></path></svg>
+                        <div>: http://106.52.91.170</div>
+                    </div>
+                    <div class="contact-info-section-div2">
+                        <svg t="1744379511809" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5832" width="20" height="20"><path d="M874.666667 181.333333H149.333333c-40.533333 0-74.666667 34.133333-74.666666 74.666667v512c0 40.533333 34.133333 74.666667 74.666666 74.666667h725.333334c40.533333 0 74.666667-34.133333 74.666666-74.666667V256c0-40.533333-34.133333-74.666667-74.666666-74.666667z m-725.333334 64h725.333334c6.4 0 10.666667 4.266667 10.666666 10.666667v25.6L512 516.266667l-373.333333-234.666667V256c0-6.4 4.266667-10.666667 10.666666-10.666667z m725.333334 533.333334H149.333333c-6.4 0-10.666667-4.266667-10.666666-10.666667V356.266667l356.266666 224c4.266667 4.266667 10.666667 4.266667 17.066667 4.266666s12.8-2.133333 17.066667-4.266666l356.266666-224V768c0 6.4-4.266667 10.666667-10.666666 10.666667z" fill="#666666" p-id="5833"></path></svg>
+                        <div>: 2672510873@qq.com</div>
+                    </div>
                 </div>
-            </div>
-            <img src="./avatar.jpg" alt="Avatar" class="avatar">
-        </header>
-
-        <section>
-            <h2>教育背景</h2>
-            <div class="item-header">
-                <div class="item-title">浙江师范大学</div>
-                <div class="item-date">2022.09 - 2026.06</div>
-            </div>
-            <div class="item-subtitle">计算机科学与技术 · 本科</div>
-            <div style="margin-top: 6px; font-size: 9.5pt; color: var(--text-secondary); font-weight: 700;">
-                🏆 蓝桥杯 C/C++ 程序设计大学 B 组省赛二等奖 (2023.04)
-            </div>
-        </section>
-
-        <section>
-            <h2>实习经历</h2>
-            <div class="item-header">
-                <div class="item-title">恒生电子股份有限公司</div>
-                <div class="item-date">2025.07 - 2025.09</div>
-            </div>
-            <div class="item-subtitle">人工智能部 · 前端开发实习生</div>
-            <ul>
-                <li>Web 开发：用户 AI 对话消息查询系统，支持管理员审计与检索</li>
-                <li>Web 开发：模型权限管理界面，支持批量创建、删除及权限分配</li>
-                <li>数据处理：基于 TypeScript 对 AI 插件使用数据进行统计、代码长度分析及意图打标</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>精选项目</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-name">object1veAI 全栈项目</div>
-                    <div class="project-tech">Vue 3, Pinia, Koa2, MySQL</div>
-                    <div class="project-desc">基于 OpenAI SDK 的全栈 AI 对话平台。</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-name">智能云图库项目</div>
-                    <div class="project-tech">Vue 3, Ant Design, MyBatis Plus</div>
-                    <div class="project-desc">支持多图上传、审核及权限管理的云端图库。</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-name">个人简历生成器</div>
-                    <div class="project-tech">Vue 3, Tailwind CSS, Vite</div>
-                    <div class="project-desc">响应式 Bento 风格简历展示与生成工具。</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-name">AI 助手 MCP 插件</div>
-                    <div class="project-tech">Node.js, TypeScript, MCP SDK</div>
-                    <div class="project-desc">基于 Model Context Protocol 的 AI 增强插件。</div>
+                <div class="contact-info-section">
+                    <div class="contact-info-section-div1">
+                        <p>个人简介: 乐观积极,热爱技术,有效沟通,逻辑能力强,相信方法总比困难多.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <section>
-            <h2>技术能力</h2>
-            <div class="skills-container">
-                <div class="skill-group">
-                    <div class="skill-category">Frontend</div>
-                    <div class="skill-items">Vue 2/3, TypeScript, JavaScript, Tailwind, Electron, Tauri</div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-category">Backend & AI</div>
-                    <div class="skill-items">Node.js, Koa2, MySQL, AI API, RAG, MCP</div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-category">Tools & DevOps</div>
-                    <div class="skill-items">Vite, Git, Linux, Docker, Nginx, Shell</div>
-                </div>
-                <div class="skill-group">
-                    <div class="skill-category">Others</div>
-                    <div class="skill-items">网络安全工具 (IDA, BurpSuite), 英语六级, 驾照</div>
-                </div>
-            </div>
-        </section>
+        </div>
+        <img src="./avatar.jpg" alt="个人头像" class="avatar">
+    </div>
+    <div class="section">
+        <h2>教育背景</h2>
+        <p><strong>浙江师范大学</strong> - 本科 - 计算机科学与技术<span style="float: right;">2022.9 - 2026.6</span></p>
+        <p>蓝桥杯 C/C++程序设计大学B组 省赛 二等奖 <span style="float: right;">2023.4</span></p>
+    </div>
+    <div class="section">
+        <h2>实习经历</h2>
+        <p>恒生电子股份有限公司 人工智能部 (杭州) (前端开发) <span style="float: right;">2025.7 - 2025.9</span></p>
+        <ul>
+            <li>web开发 用户ai对话消息查询, 用于管理员查询、审计对话信息</li>
+            <li>web开发 模型权限管理界面, 用于管理员管理模型权限, 包括模型的批量创建、删除、权限分配等操作</li>
+            <li>TS数据处理 对AI插件使用情况数据进行处理,代码长度统计,用户问题意图打标等</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>项目经历</h2>
+        <p><strong>object1veAI 全栈开发</strong></p>
+        <ul>
+            <li>前端技术栈: 基于 Vite + Vue 3 + Element Plus + Vue Router + Pinia + Axios</li>
+            <li>实现分页查询,提升大数据下的页面渲染和查询速度, 减少不必要的服务器请求, 缓解后端压力</li>
+            <li>通过防抖、节流优化了用户输入的响应速度, 避免了频繁的请求发送</li>
+            <li>集成 markdown-it 与 highlight.js 实现代码高亮与公式渲染，自定义插件解决了流式输出时的 Markdown 闭合标签闪烁问题。</li>
+            <li>后端技术栈: 基于koa2+MySQL+Openai SDK 实现了模型的调用, 并通过MySQL存储用户对话记录, 实现了用户的多模型切换</li>
+            <li>使用 Pinia 在各组件访问数据,设计了清晰的数据状态模块,实现组件之间的通信</li>
+            <li>基于 Vue Router 实现动态路由和导航菜单生成, 并通过 meta 属性控制页面访问权限</li>
+            <li>实现多用户聊天会话管理、历史会话查询及消息实时更新, 支持多模型切换</li>
+        </ul>
+        <p><strong>智能云图库项目 全栈开发</strong></p>
+        <ul>
+            <li>基于Vue3+Ant Design Vue 组件库,开发公共图库、私有空间,用户管理,图库管理等页面</li>
+            <li>全局状态管理: 基于Pinia定义UserStore实现了对用户登录态的存储, 并通过组合式APl(useStore)在各页面中访问用户信息。</li>
+            <li>导航菜单生成: 基于Vue Router的路由配置自动生成导航菜单, 并通过给路由的meta属性增加hidelnMenu字段实现集中控制页面的显隐</li>
+            <li>前后端联调: 使用OpenAPI工具根据Swagger接口文档生成TS模型和请求代码, 减少手写接口的成本, 大幅提高开发效率</li>
+            <li>图片上传: 基于 Ant Design 的Upload 组件封装了本地与URL 两种上传组件,并支持图片大小、格式的前端校验</li>
+            <li>图片审核: 设计分级审核策略, 管理员上传图片自动通过审核, 并自动记录审核时间与审核人id, 确保可审计追溯。</li>
+            <li>实现 MyBatis Plus、Hutool、Knife4j接口文档、Lombok等主流依赖整合</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>技术能力</h2>
+        <ul class="skills-list">
+            <li>熟悉HTML、CSS、js、浏览器等Web开发领域相关技术</li> 
+            <li>熟悉Vue2/3的使用及设计原理,熟悉MVVM架构模式</li>
+            <li>具备PC端开发能⼒,有Electron、Tauri等开发经验</li>
+            <li>了解后端技术栈Java、Python,懂得数据库设计与优化</li>
+            <li>熟悉Linux系统操作, 具备Shell脚本编写能力, 熟悉Nginx, 能够独立部署web应用</li>
+            <li>熟练使用MySQL, PostgreSQL 进行curd操作,了解数据库线程池的运用</li>
+            <li>熟悉ai的api调用, 流式输出, rag优化, mcp, A2A, skill 等概念</li>
+            <li>熟练使用ida,jadx-gui,BurpSuite,antSword等网络安全工具</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>证书</h2>
+        <p>英语六级 驾驶证</p>
     </div>
 </body>
 </html>
