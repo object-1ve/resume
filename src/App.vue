@@ -19,6 +19,7 @@ const contactInfo = {
 const education = [
   {
     school: '浙江师范大学',
+    link: 'https://www.zjnu.edu.cn/',
     degree: '本科 - 计算机科学与技术',
     period: '2022.09 - 2026.06',
     awards: ['蓝桥杯 C/C++ 程序设计大学 B 组省赛二等奖 (2023.04)']
@@ -28,6 +29,7 @@ const education = [
 const internships = [
   {
     company: '恒生电子股份有限公司',
+    link: 'https://www.hundsun.com',
     department: '人工智能部 (杭州)',
     role: '前端开发实习生',
     period: '2025.07 - 2025.09',
@@ -175,7 +177,10 @@ const skills = [
               <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-orange-500 border-4 border-white shadow-sm group-hover/item:scale-125 transition-transform"></div>
               <div class="flex justify-between items-start flex-wrap gap-4 mb-6">
                 <div>
-                  <h3 class="text-3xl font-black text-gray-900 group-hover/item:text-orange-600 transition-colors">{{ job.company }}</h3>
+                  <a v-if="job.link" :href="job.link" target="_blank" class="group/link inline-block">
+                    <h3 class="text-3xl font-black text-gray-900 group-hover/link:text-orange-600 transition-colors">{{ job.company }}</h3>
+                  </a>
+                  <h3 v-else class="text-3xl font-black text-gray-900">{{ job.company }}</h3>
                   <div class="flex items-center gap-2 mt-2">
                     <span class="text-orange-600 font-bold text-sm uppercase tracking-wider">{{ job.department }}</span>
                     <span class="text-gray-400">•</span>
@@ -203,7 +208,10 @@ const skills = [
             </h2>
             <div v-for="edu in education" :key="edu.school" class="space-y-8">
               <div class="group/edu">
-                <h3 class="text-xl font-black text-gray-900 group-hover/edu:text-blue-600 transition-colors">{{ edu.school }}</h3>
+                <a v-if="edu.link" :href="edu.link" target="_blank" class="group/school inline-block">
+                  <h3 class="text-xl font-black text-gray-900 group-hover/school:text-blue-600 transition-colors">{{ edu.school }}</h3>
+                </a>
+                <h3 v-else class="text-xl font-black text-gray-900">{{ edu.school }}</h3>
                 <p class="text-gray-700 font-bold text-sm mt-2">{{ edu.degree }}</p>
                 <p class="text-gray-500 text-[10px] mt-1 font-black uppercase tracking-widest">{{ edu.period }}</p>
               </div>
@@ -277,12 +285,7 @@ const skills = [
               
               <div class="flex-1 space-y-4">
                 <div class="space-y-1">
-                  <template v-if="project.link || project.github">
-                    <a :href="project.link || project.github" target="_blank" class="block group/title">
-                      <h3 class="text-xl font-black text-gray-900 group-hover/title:text-orange-600 transition-colors tracking-tight">{{ project.name }}</h3>
-                    </a>
-                  </template>
-                  <h3 v-else class="text-xl font-black text-gray-900 tracking-tight">{{ project.name }}</h3>
+                  <h3 class="text-xl font-black text-gray-900 tracking-tight">{{ project.name }}</h3>
                   <p class="text-[10px] text-orange-600 font-black uppercase tracking-widest">{{ project.role }}</p>
                 </div>
                 
