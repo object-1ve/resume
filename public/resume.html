@@ -117,6 +117,7 @@
             <li>前端技术栈: 基于 Vite + Vue 3 + Element Plus + Vue Router + Pinia + Axios</li>
             <li>实现分页查询,提升大数据下的页面渲染和查询速度, 减少不必要的服务器请求, 缓解后端压力</li>
             <li>通过防抖、节流优化了用户输入的响应速度, 避免了频繁的请求发送</li>
+            <li>实现长截图功能，利用 html2canvas 封装了页面截图功能。通过动态样式注入策略，解决了滚动容器在截图时内容缺失的问题</li>
             <li>集成 markdown-it 与 highlight.js 实现代码高亮与公式渲染，自定义插件解决了流式输出时的 Markdown 闭合标签闪烁问题。</li>
             <li>后端技术栈: 基于koa2+MySQL+Openai SDK 实现了模型的调用, 并通过MySQL存储用户对话记录, 实现了用户的多模型切换</li>
             <li>使用 Pinia 在各组件访问数据,设计了清晰的数据状态模块,实现组件之间的通信</li>
@@ -125,20 +126,21 @@
         </ul>
         <p><strong>智能云图库项目 全栈开发</strong></p>
         <ul>
-            <li>基于Vue3+Ant Design Vue 组件库,开发公共图库、私有空间,用户管理,图库管理等页面</li>
+            <li>前端技术栈: 基于 Vue 3 + Ant Design Vue + Pinia, 开发公共图库、私有空间、用户管理、图库管理等页面</li>
+            <li>后端技术栈: 基于 Java + MyBatis Plus + Hutool + Knife4j 等主流工具, 实现了高效的图片管理与审核流程</li>
+            <li>实现了图片懒加载方案，降低了主线程的计算压力，避免了页面滚动时的掉帧现象</li>
             <li>全局状态管理: 基于Pinia定义UserStore实现了对用户登录态的存储, 并通过组合式APl(useStore)在各页面中访问用户信息。</li>
             <li>导航菜单生成: 基于Vue Router的路由配置自动生成导航菜单, 并通过给路由的meta属性增加hidelnMenu字段实现集中控制页面的显隐</li>
             <li>前后端联调: 使用OpenAPI工具根据Swagger接口文档生成TS模型和请求代码, 减少手写接口的成本, 大幅提高开发效率</li>
             <li>图片上传: 基于 Ant Design 的Upload 组件封装了本地与URL 两种上传组件,并支持图片大小、格式的前端校验</li>
             <li>图片审核: 设计分级审核策略, 管理员上传图片自动通过审核, 并自动记录审核时间与审核人id, 确保可审计追溯。</li>
-            <li>实现 MyBatis Plus、Hutool、Knife4j接口文档、Lombok等主流依赖整合</li>
         </ul>
     </div>
     <div class="section">
         <h2>技术能力</h2>
         <ul class="skills-list">
             <li>熟悉HTML、CSS、js、浏览器等Web开发领域相关技术</li> 
-            <li>熟悉Vue2/3的使用及设计原理,熟悉MVVM架构模式</li>
+            <li>熟悉Vue2/3的使用及设计原理,熟悉tailwindcss的使用,熟悉MVVM架构模式</li>
             <li>具备PC端开发能⼒,有Electron、Tauri等开发经验</li>
             <li>了解后端技术栈Java、Python,懂得数据库设计与优化</li>
             <li>熟悉Linux系统操作, 具备Shell脚本编写能力, 熟悉Nginx, 能够独立部署web应用</li>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import object1veAI from './assets/object1veAI.svg'
+import picture from './assets/picture.png'
+import MonitoringSystem from './assets/MonitoringSystem.svg'
+import OopsLauncher from './assets/OopsLauncher.ico'
 
 const contactInfo = {
   name: '应知钊',
@@ -40,24 +44,45 @@ interface Project {
   role: string
   link?: string
   github?: string
-  tech: string[]
+  icon?: string
+  frontendTech: string[]
+  backendTech: string[]
 }
 
 const projects: Project[] = [
+
   {
     name: 'object1veAI',
     role: '全栈开发',
     link: 'http://106.52.91.170:88/',
-    github: 'https://github.com/object-1ve/object1veAI',
-    tech: ['Vite', 'Vue 3', 'Element Plus', 'Pinia', 'Koa2', 'MySQL', 'OpenAI SDK']
+    icon: object1veAI,
+    frontendTech: ['Vite', 'Vue 3', 'Element Plus', 'Pinia'],
+    backendTech: ['Koa2', 'MySQL', 'OpenAI SDK']
   },
   {
     name: '智能云图库',
     role: '全栈开发',
     link: 'http://106.52.91.170:90/',
-    github: 'https://github.com/object-1ve/cloud-gallery',
-    tech: ['Vue 3', 'Ant Design Vue', 'Pinia', 'MyBatis Plus', 'Swagger','Java']
-  }
+    icon: picture,
+    frontendTech: ['Vue 3', 'Ant Design Vue', 'Pinia'],
+    backendTech: ['Java', 'MyBatis Plus', 'Swagger']
+  },
+  {
+    name: '智能客服质量监测系统',
+    role: 'Vibe Coding',
+    link: 'http://106.52.91.170:99/',
+    icon: MonitoringSystem,
+    frontendTech: ['Vue 3', 'Pinia', 'Element Plus', 'ECharts', 'Axios', 'Vite'],
+    backendTech: ['FastAPI', 'MySQL', 'SQLAlchemy', 'JWT', 'Docker'],
+  },
+  {
+    name: 'OopsLauncher',
+    role: 'Vibe Coding',
+    github: 'https://github.com/object-1ve/OopsLauncher',
+    icon: OopsLauncher,
+    frontendTech: ['Vue 3', 'Element Plus', 'Vue Router', 'Vite'],
+    backendTech: ['Rust', 'Tauri 2.0', 'SQLite', 'Windows API']
+  },
 ]
 
 const skills = [
@@ -73,10 +98,8 @@ const skills = [
 <template>
   <div class="min-h-screen bg-[#f7f7f7] text-[#1d1d1f] py-12 px-4 sm:px-6 lg:px-8 font-sans selection:bg-orange-100 selection:text-orange-900">
     <div class="max-w-6xl mx-auto space-y-6">
-      
       <!-- Bento Grid Layout -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-        
         <!-- Header Section (Bento Card - Large) -->
         <header class="md:col-span-8 bg-white rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 border border-gray-100/80 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-700 group">
           <div class="relative shrink-0">
@@ -85,13 +108,11 @@ const skills = [
             </div>
             <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-white shadow-sm animate-pulse"></div>
           </div>
-          
           <div class="flex-1 text-center md:text-left space-y-6">
             <div class="space-y-3">
               <h1 class="text-5xl md:text-6xl font-black tracking-tight text-gray-900">{{ contactInfo.name }}</h1>
               <p class="text-xl font-semibold text-gray-600 mt-2">{{ contactInfo.role }}</p>
             </div>
-            
             <p class="text-gray-700 leading-relaxed text-lg font-medium max-w-xl">
               {{ contactInfo.intro }}
             </p>
@@ -199,10 +220,10 @@ const skills = [
             <p class="text-[10px] text-gray-500 font-black uppercase tracking-[0.2em] mb-6">Skill Stack</p>
             <div class="space-y-4">
               <div class="flex h-3 rounded-full overflow-hidden bg-gray-50 shadow-inner">
-                <div class="w-[45%] bg-orange-500/90" title="Frontend"></div>
+                <div class="w-[40%] bg-orange-500/90" title="Frontend"></div>
                 <div class="w-[25%] bg-blue-500/90" title="Backend"></div>
-                <div class="w-[20%] bg-purple-500/90" title="AI"></div>
-                <div class="w-[10%] bg-gray-200" title="Other"></div>
+                <div class="w-[30%] bg-purple-500/90" title="AI"></div>
+                <div class="w-[5%] bg-gray-200" title="Other"></div>
               </div>
               <div class="grid grid-cols-2 gap-y-2 gap-x-4">
                 <div class="flex items-center gap-2">
@@ -238,8 +259,9 @@ const skills = [
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div v-for="project in projects" :key="project.name" class="bg-white p-8 rounded-[2.5rem] border border-gray-100/80 shadow-[0_4px_24px_rgba(0,0,0,0.02)] flex flex-col hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-700 group">
               <div class="flex items-start justify-between mb-8">
-                <div v-for="icon in ['🚀']" class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-orange-50 group-hover:rotate-6 transition-all duration-500">
-                  <span class="text-2xl group-hover:scale-110 transition-transform">{{ icon }}</span>
+                <div class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-orange-50 group-hover:rotate-6 transition-all duration-500 overflow-hidden">
+                  <img v-if="project.icon" :src="project.icon" class="w-full h-full object-cover p-2 group-hover:scale-110 transition-transform" />
+                  <span v-else class="text-2xl group-hover:scale-110 transition-transform">🚀</span>
                 </div>
                 <div class="flex gap-2">
                   <a v-if="project.github" :href="project.github" target="_blank" class="w-10 h-10 flex items-center justify-center bg-gray-50 text-gray-500 hover:text-gray-900 hover:bg-white hover:shadow-md rounded-xl transition-all" title="GitHub">
@@ -253,19 +275,44 @@ const skills = [
                 </div>
               </div>
               
-              <div class="flex-1 space-y-3">
-                <h3 class="text-xl font-black text-gray-900 group-hover:text-orange-600 transition-colors tracking-tight">{{ project.name }}</h3>
-                <p class="text-[10px] text-orange-600 font-black uppercase tracking-widest">{{ project.role }}</p>
-                <div class="flex flex-wrap gap-2 pt-2">
-                  <span v-for="t in project.tech" :key="t" class="px-2.5 py-1 bg-gray-50/80 text-gray-600 text-[9px] font-black uppercase rounded-lg border border-gray-100 group-hover:border-orange-100/50 group-hover:text-orange-500 transition-all">
-                    {{ t }}
-                  </span>
+              <div class="flex-1 space-y-4">
+                <div class="space-y-1">
+                  <template v-if="project.link || project.github">
+                    <a :href="project.link || project.github" target="_blank" class="block group/title">
+                      <h3 class="text-xl font-black text-gray-900 group-hover/title:text-orange-600 transition-colors tracking-tight">{{ project.name }}</h3>
+                    </a>
+                  </template>
+                  <h3 v-else class="text-xl font-black text-gray-900 tracking-tight">{{ project.name }}</h3>
+                  <p class="text-[10px] text-orange-600 font-black uppercase tracking-widest">{{ project.role }}</p>
+                </div>
+                
+                <div class="space-y-3">
+                  <div>
+                    <p class="text-[9px] text-gray-400 font-black uppercase tracking-widest mb-1.5">Frontend</p>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span v-for="t in project.frontendTech" :key="t" class="px-2 py-0.5 bg-gray-50/80 text-gray-600 text-[8px] font-black uppercase rounded-md border border-gray-100 group-hover:border-orange-100/50 group-hover:text-orange-500 transition-all">
+                        {{ t }}
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[9px] text-gray-400 font-black uppercase tracking-widest mb-1.5">Backend</p>
+                    <div class="flex flex-wrap gap-1.5">
+                      <span v-for="t in project.backendTech" :key="t" class="px-2 py-0.5 bg-gray-50/80 text-gray-600 text-[8px] font-black uppercase rounded-md border border-gray-100 group-hover:border-orange-100/50 group-hover:text-orange-500 transition-all">
+                        {{ t }}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              <div class="pt-8 border-t border-gray-50 mt-8 group-hover:border-orange-50 transition-colors flex items-center justify-between">
+              <a v-if="project.link || project.github" :href="project.link || project.github" target="_blank" class="pt-8 border-t border-gray-50 mt-8 group-hover:border-orange-50 transition-colors flex items-center justify-between cursor-pointer">
                 <span class="text-[10px] font-black text-gray-500 group-hover:text-orange-400 transition-colors uppercase tracking-[0.2em]">Explore Project</span>
                 <span class="text-gray-400 group-hover:text-orange-300 transition-colors">→</span>
+              </a>
+              <div v-else class="pt-8 border-t border-gray-50 mt-8 group-hover:border-orange-50 transition-colors flex items-center justify-between">
+                <span class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">Ongoing Project</span>
+                <span class="text-gray-400">...</span>
               </div>
             </div>
           </div>
