@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { contactInfo, education, internships, projects, skills } from './data'
+import { recordVisit } from './utils/supabase'
 import HeaderSection from './components/HeaderSection.vue'
 import ContactCard from './components/ContactCard.vue'
 import ExperienceSection from './components/ExperienceSection.vue'
@@ -7,6 +9,10 @@ import EducationSection from './components/EducationSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import SkillsSection from './components/SkillsSection.vue'
 import AppFooter from './components/AppFooter.vue'
+
+onMounted(() => {
+  recordVisit()
+})
 </script>
 
 <template>
